@@ -7,10 +7,13 @@
            }
 
            this.newTask = function(){
-               this.toDOList = TaskRepository.addTask({name:'Tesxt Task',dueBy:moment().format()}).TaskList;
+               this.toDOList = TaskRepository.addTask({name:this.taskModel.name,dueBy:moment(this.taskModel.dueBy).format()}).TaskList;
            }
 
-           this.taskModel={};
+           this.taskModel={
+               name:'Test TAsk',
+               dueBy: '04/27/2017 9:10 PM'
+           };
 
         }])
 })();

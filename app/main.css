@@ -5,3 +5,11 @@
 .custom-checkbox{
     cursor: pointer;
 }
+
+.due-date {
+    position: relative;
+    top: -14px;
+    padding: 25px;
+    color: red;
+    font-style: italic;
+}

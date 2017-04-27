@@ -1,0 +1,20 @@
+{
+  "name": "todo",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Shailendra <sprajjobid@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/shailendra0102/to-do",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "eonasdan-bootstrap-datetimepicker": "^4.17.47"
+  }
+}
