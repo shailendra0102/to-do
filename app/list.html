@@ -9,7 +9,7 @@
              <input type="text" class="form-control" placeholder="Task Description">
         </div>
          <div class="col-xs-2">
-             <button type="submit" class="btn btn-primary pull-right">Add</button>
+             <button type="submit" class="btn btn-primary pull-right" ng-click="list.newTask();">Add</button>
          </div>
     </div>
     
@@ -17,7 +17,7 @@
     
     </form> 
   </div>
-  <ul class="list-group">
+  <ul class="list-group" ng-init="list.getAllTaskList();">
       
     <li class="list-group-item" ng-repeat="task in list.toDOList">
         <label class="custom-control custom-checkbox">
