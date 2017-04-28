@@ -5,15 +5,22 @@
                 restrict:'E',
                 templateUrl:'app/date-time.html',
                 link:function(scope,ele,attr,ngModelCtrl){
-                    $(ele).datetimepicker();
+                    $("#datetimepicker1").datetimepicker({
+                        minDate : moment()
+                    });
                 },
-                bindToController: {},
+                bindToController: {
+                    dateTime: "=value"
+                },
                 controller:['$interval','$scope',function($interval,$scope){
-                    this.dateTime=moment().format("MM/DD/YYYY h:mm A");
-                    $interval(function(){
-                        this.dateTime=moment().format("MM/DD/YYYY h:mm A");
+                    this.$onInit = function () {
+                        console.log(this.dateTime.dueBy); // logs your item object
+                    };
+                    var updateTime=(function(){
+                        this.dateTime.dueBy=moment().format("MM/DD/YYYY h:mm A");
                         console.log( this.dateTime);
-                    },60000);
+                    }).bind(this);
+                    //$interval(updateTime,60000);
                 }],
                 controllerAs:'ctrl'
             }

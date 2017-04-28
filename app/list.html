@@ -9,7 +9,7 @@
              <input type="text" class="form-control" placeholder="Task Description" ng-model="list.taskModel.name">
         </div>
         <div class="col-xs-5 col-md-3">
-          <date-time-picker ng-model="list.taskModel.dueBy"></date-time-picker>
+          <date-time-picker ng-model="list.taskModel.dueBy" value="list.taskModel"></date-time-picker>
         </div>
          <div class="col-xs-2 col-md-2">
              <button type="submit" class="btn btn-primary pull-right" ng-click="list.newTask();">Add</button>

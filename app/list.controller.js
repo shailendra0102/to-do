@@ -12,7 +12,7 @@
 
            this.taskModel={
                name:'Test TAsk',
-               dueBy: '04/27/2017 9:10 PM'
+               dueBy: moment().format("MM/DD/YYYY h:mm A")
            };
 
         }])
