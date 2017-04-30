@@ -9,7 +9,22 @@
 .due-date {
     position: relative;
     top: -14px;
-    padding: 25px;
+    padding: 0px 25px;
     color: red;
     font-style: italic;
 }
+
+.list-group-item-success{
+    background-color: #006600;
+    color:white;
+}
+
+.list-group-item-danger{
+    background-color: red;
+    color:white;
+}
+
+.list-group-item-danger .due-date {
+    color:white;
+}
+

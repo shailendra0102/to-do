@@ -3,16 +3,16 @@
     <h1>Task List</h1>      
   </div>
   <div class="form"> 
-    <form>
+    <form name="list.todo" novalidate>
     <div class="row">
          <div class="col-xs-5 col-md-7">
-             <input type="text" class="form-control" placeholder="Task Description" ng-model="list.taskModel.name">
+             <input type="text" class="form-control" name="taskname" placeholder="Task Description*" ng-model="list.taskModel.name" required>
         </div>
         <div class="col-xs-5 col-md-3">
-          <date-time-picker ng-model="list.taskModel.dueBy" value="list.taskModel"></date-time-picker>
+          <date-time-picker value="list.taskModel" ></date-time-picker>
         </div>
          <div class="col-xs-2 col-md-2">
-             <button type="submit" class="btn btn-primary pull-right" ng-click="list.newTask();">Add</button>
+             <button type="submit" class="btn btn-primary pull-right" ng-disabled="list.todo.$invalid" ng-click="list.newTask();">Add</button>
          </div>
     </div>
     
@@ -21,23 +21,15 @@
     </form> 
   </div>
   <ul class="list-group" ng-init="list.getAllTaskList();">
+    <!--ng-class="task.completed?'list-group-item-success':'',true?'test':'test2'"-->
       
-    <li class="list-group-item" ng-repeat="task in list.toDOList">
+    <li class="list-group-item" ng-repeat="task in list.toDOList" ng-class="{'list-group-item-success': task.completed , 'list-group-item-danger': (!task.completed && task.overDue)   }">
         <label class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input">
+        <input type="checkbox" class="custom-control-input" ng-click="list.completeTask(task);">
         <span class="custom-control-indicator"></span>
         <span class="custom-control-description">{{task.name}}<span class="due-date">Due By: {{task.dueBy}}</span></span>
         </label>
     </li>
-    <li class="list-group-item list-group-item-success">Dapibus ac facilisis in</li>
-    <li class="list-group-item list-group-item-info">Cras sit amet nibh libero</li>
-    <li class="list-group-item list-group-item-warning">Porta ac consectetur ac</li>
-    <li class="list-group-item list-group-item-danger">Vestibulum at eros</li>
   </ul>
-</div>  
+</div> 
 
-<script type="text/javascript">
-            $(function () {
-                $('#datetimepicker1').datetimepicker();
-            });
-        </script>

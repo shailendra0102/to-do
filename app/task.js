@@ -4,15 +4,20 @@
             function Task(taskObject){
                 this.name = taskObject.name;
                 this.dueBy = taskObject.dueBy;
+                this.overDue = false;
                 this.completed = false;
             }
 
             Task.prototype=(function(){
                 var complete=function(){
-                    this.completed=true;
+                    this.completed=this.completed?false:true;
+                }
+                var overDueTask=function(){
+                    this.overDue=true;
                 }
                 return {
-                    complete:complete
+                    complete:complete,
+                    overDueTask:overDueTask
                 }
             })();
 

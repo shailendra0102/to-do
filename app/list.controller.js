@@ -3,17 +3,26 @@
         .controller('ListController',['TaskRepository', function(TaskRepository){ 
 
            this.getAllTaskList = function(){
-                this.toDOList = TaskRepository.getAllTaskList().TaskList;   
+                this.toDOList = TaskRepository.getAllTaskList(); 
            }
 
            this.newTask = function(){
-               this.toDOList = TaskRepository.addTask({name:this.taskModel.name,dueBy:moment(this.taskModel.dueBy).format()}).TaskList;
+               if(this.todo.$valid && moment()<moment(this.taskModel.dueBy)){
+                console.log(this.taskModel);
+                this.toDOList = TaskRepository.addTask({name:this.taskModel.name,dueBy:moment(this.taskModel.dueBy).format()}).TaskList;
+                console.log(this.taskModel);
+                this.taskModel={};
+               }else{
+                   alert("Due date time should be in future");
+               }
+               
            }
 
-           this.taskModel={
-               name:'Test TAsk',
-               dueBy: moment().format("MM/DD/YYYY h:mm A")
-           };
+           this.completeTask=function(task){
+                TaskRepository.completeTask(task);
+           }
+
+           this.taskModel={};
 
         }])
 })();

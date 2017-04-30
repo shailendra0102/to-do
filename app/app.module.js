@@ -1,5 +1,5 @@
 (function(){
-    angular.module('todo',['ui.router']).config(routesConfiguration);
+    angular.module('todo',['ui.router','angular-growl']).config(routesConfiguration);
 
 	routesConfiguration.$inject=['$urlRouterProvider','$stateProvider','$locationProvider']
 
