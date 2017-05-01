@@ -27,6 +27,9 @@
                         interval = null;
                         //console.log('timer ended');
                     }
+                }else{
+                    //start timer again
+                    startInterval.call(this);
                 }                
             }
 
@@ -39,7 +42,7 @@
             function startInterval(){
                 if(!interval){
                     interval= $interval(checkForOverDues.bind(this),60000);
-                    console.log('timer started');
+                    //console.log('timer started');
                 }
                 
             }
