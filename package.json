@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "http-server -a localhost -p 80 -c-1"
+    "start": "http-server -a localhost -p 80 -c-1",
+    "postinstall": "bower cache clean && bower install"
   },
   "repository": {
     "type": "git",
